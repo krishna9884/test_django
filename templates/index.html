@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Home {% endblock title %}
+
+{% block body %}
+
+<h2 class="text-center my-3">Create log</h2>
+
+<form class="container-fluid" method="post">
+{% csrf_token %}
+    <div class="form-group ">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" class="form-control" id="phone" name="phone">
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" class="form-control" id="age" name="age">
+    </div >
+    <button type="submit" class="btn btn-primary my-2">Submit</button>
+  </form>
+  
+  
+{% endblock  %}

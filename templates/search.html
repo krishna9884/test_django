@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Search {% endblock title %}
+
+{% block body %}
+
+{% if searched %}
+    <h2 class="my-3 text-center">Result for {{searched}}</h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">No.</th>
+            <th scope="col">Age</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{item.name}}</th>
+            <td>{{item.email}}</td>
+            <td>{{item.phone}}</td>
+            <td>{{item.age}}</td>
+            <td><a href="delete/{{ item.id }}" class="text-decoration-none">Delete  </a>| <a class="text-decoration-none" href="update/{{ item.id }}">Update</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% else %}
+    <h2 class="my-3 text-center" >Empty search...</h2>
+{% endif %}
+
+{% endblock body %}

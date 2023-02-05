@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Info {% endblock title %}
+
+{% block body %}
+
+<h2 class="text-center my-3">All logs</h2>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">No.</th>
+        <th scope="col">Age</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{item.name}}</th>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.age}}</td>
+        <td><a href="delete/{{ item.id }}" class="text-decoration-none">Delete  </a>| <a class="text-decoration-none" href="update/{{ item.id }}">Update</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock body %}
